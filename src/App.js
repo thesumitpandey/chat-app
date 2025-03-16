@@ -17,7 +17,7 @@ const ChatApp = () => {
  
   const showToast = (message) => {
     
-    toast(message)
+    toast(message);
   }
 
 
@@ -46,4 +46,4 @@ const ChatApp = () => {
   );
 };
 
-export default ChatApp;
+export default ChatApp
