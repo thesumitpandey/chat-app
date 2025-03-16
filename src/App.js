@@ -1,25 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
+import { ethers } from "ethers";
+import { HashRouter, Routes, Route } from "react-router-dom";
+import Notestate from './context/Notestate';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Login from "./components/Login";
+import './components/file.css'
+import  User from "./components/user";
+import Home from "./components/Home";
+import Addfriend from "./components/addfriend";
+import Friend from "./components/friend";
+import { ToastContainer } from 'react-toastify'; 
+import { toast } from 'react-toastify';
 
-function App() {
+
+const ChatApp = () => {
+ 
+  const showToast = (message) => {
+    
+    toast(message);
+  }
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+
+<Notestate >
+          <HashRouter>
+          <ToastContainer  position="top-center"autoClose={2000} />
+           
+          
+            <div>
+              <Routes>
+                <Route exact path='/' element={<Login showToast={showToast}/>} />
+                <Route exact path='/user' element={<User/>} />
+                <Route exact path='/Home' element={<Home/>} />
+                <Route exact path='/addfriend' element={<Addfriend showToast={showToast}/>} />
+                <Route exact path='/friend' element={<Friend />} />
+             
+              </Routes>
+            </div>
+          </HashRouter>
+        </Notestate>
+    
     </div>
   );
-}
+};
 
-export default App;
+export default ChatApp;
