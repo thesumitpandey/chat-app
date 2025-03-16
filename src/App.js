@@ -17,7 +17,7 @@ const ChatApp = () => {
  
   const showToast = (message) => {
     
-    toast(message);
+    toast(message)
   }
 
 
